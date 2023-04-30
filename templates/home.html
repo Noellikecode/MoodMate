@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+     <meta name="google-site-verification" content="z70qdxSR4ovR6a0WLAKinjbP18aTXV-uVnA6c-BtAoQ" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>StockPredict</title>
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <meta name="author" content="" />
+    <link rel="icon" type="images/x-icon" href="https://icons.veryicon.com/png/o/business/finance-2/stock-market-ranking.png" />
+
+    <!-- Font Awesome if you need it
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.10.2/css/all.css">
+  -->
+    <link rel="stylesheet" href="https://unpkg.com/tailwindcss@2.2.19/dist/tailwind.min.css"/>
+    <!--Replace with your tailwind.css once created-->
+    <link
+      href="https://unpkg.com/@tailwindcss/custom-forms/dist/custom-forms.min.css"
+      rel="stylesheet"
+    />
+    <!--Tailwind Custom Forms - use to standardise form fields - https://github.com/tailwindcss/custom-forms-->
+
+    <style>
+      @import url("https://rsms.me/inter/inter.css");
+      html {
+        font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI",
+          Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif,
+          "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
+          "Noto Color Emoji";
+      }
+
+
+
+      button,
+      .gradient2 {
+        background-color: #f39f86;
+        background-image: linear-gradient(315deg, rgba(28, 216, 200, 0.634) 0%,rgb(0, 149, 255) 74%);
+      }
+
+      /* Browser mockup code
+ * Contribute: https://gist.github.com/jarthod/8719db9fef8deb937f4f
+ * Live example: https://updown.io
+ */
+
+      .browser-mockup {
+        border-top: 2em solid rgba(230, 230, 230, 0.7);
+        position: relative;
+        height: 60vh;
+      }
+
+      .browser-mockup:before {
+        display: block;
+        position: absolute;
+        content: "";
+        top: -1.25em;
+        left: 1em;
+        width: 0.5em;
+        height: 0.5em;
+        border-radius: 50%;
+      }
+
+      .browser-mockup > * {
+        display: block;
+      }
+
+          @keyframes fadeIn {
+            from {
+              opacity: 0;
+            }
+            to {
+              opacity: 1;
+            }
+          }
+          .hello {
+            animation-name: fadeIn;
+            animation-duration: 1s;
+          }
+          h1 {
+    animation-name: slide-fade-in;
+    animation-duration: 1 s;
+    animation-timing-function: ease-out;
+    animation-fill-mode: forwards;
+    opacity: 0;
+  }
+  .border-b {
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+.border-b.visible {
+  opacity: 1;
+}
+  @keyframes slide-fade-in {
+    from {
+      transform: translateY(-100%);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+      </style>
+  </head>
+
+  <body class="gradient leading-relaxed tracking-wide flex flex-col">
+
+    <nav id="header" class="w-full z-30 top-0 text-white py-1 lg:py-6">
+      <div
+        class="w-full container mx-auto flex flex-wrap items-center justify-between mt-0 px-2 py-2 lg:py-6"
+      >
+        <div class="pl-4 flex items-center">
+          <a
+            class="text-white no-underline hover:no-underline font-bold text-2xl lg:text-4xl"
+            href="#"
+          >
+            <img class="h-8 w-8 mt-7" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRkmyIQhZPA7vFlq4Jjny9jng_fH72c02Ue3w&usqp=CAU">
+          </a>
+        </div>
+
+        <div class="block lg:hidden pr-4">
+          <button
+            id="nav-toggle"
+            class="flex items-center px-3 py-2 border rounded text-gray-500 border-gray-600 hover:text-gray-800 hover:border-green-500 appearance-none focus:outline-none"
+          >
+            <svg
+              class="fill-current h-3 w-3"
+              viewBox="0 0 20 20"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <title>Menu</title>
+              <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z" />
+            </svg>
+          </button>
+        </div>
+
+        <div
+          class="w-full flex-grow lg:flex lg:items-center lg:w-auto hidden lg:block mt-2 lg:mt-0 text-black p-4 lg:p-0 z-20"
+          id="nav-content"
+        >
+          <ul class="list-reset lg:flex justify-end flex-1 items-center">
+
+            <li class="mr-3">
+              <a
+                class="inline-block text-black no-underline hover:text-gray-800 hover:text-underline py-2 px-4"
+                href="/"
+                >Home</a
+              >
+            </li>
+          </ul>
+          <button
+            id="navAction"
+            onclick="copyToClipboard('noelsimonthomas31@gmail.com')"
+            class="mx-auto lg:mx-0 hover:underline text-gray-800 font-extrabold rounded mt-4 lg:mt-0 py-4 px-8 shadow opacity-75"
+          >
+            Contact
+          </button>
+          <script>
+            function copyToClipboard(text) {
+                navigator.clipboard.writeText(text).then(function() {
+                    alert("Email copied to clipboard: " + text);
+                }, function(err) {
+                    console.error("Could not copy text: ", err);
+                });
+                }
+        </script>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container mx-auto h-screen">
+      <div class="text-center px-3 lg:px-0">
+        <h1
+          class="my-4 text-2xl md:text-3xl lg:text-5xl font-black leading-tight"
+        >
+          The Bot of the Future: MoodMate!
+        </h1>
+        <p
+          class="leading-normal text-gray-800 text-base md:text-xl lg:text-2xl mb-8"
+        >
+        A knowledgeable bot that can help you in times of need.
+        </p>
+        <a href="/bot">
+        <button
+          class="mx-auto lg:mx-0 hover:underline text-gray-800 font-extrabold rounded my-2 md:my-6 py-4 px-8 shadow-lg w-48"
+        >
+          Try it out
+        </button>
+        </a>
+      </div>
+
+      <div class="flex items-center w-1/2 mx-auto content-end">
+        <div
+          class="flex flex-1 browser-mockup  m-6 md:px-0 md:m-12 bg-white w-full rounded shadow-xl"
+        >
+        <img class="hello"src="https://img.freepik.com/free-vector/conversation-chat-bot-screen-phone-customer-tiny-man-talking-with-cute-robot-online-messenger-flat-vector-illustration-chatbot-ai-virtual-support-social-media-concept_74855-24047.jpg">
+    </div>
+      </div>
+    </div>
+
+    <section class="py-8" data-aos="fade-in" data-aos-offset="200" data-aos-easing="ease-in-sine">
+      <div class="container max-w-5xl mx-auto m-8">
+        <h2
+          class="w-full my-2 text-5xl font-black leading-tight text-center text-gray-800"
+        >
+          How it works
+        </h2>
+        <div class="w-full mb-4">
+          <div
+            class="h-1 mx-auto gradient w-64 opacity-25 my-0 py-0 rounded-t"
+          ></div>
+        </div>
+
+        <div class="flex flex-wrap">
+          <div class="w-5/6 sm:w-1/2 p-6">
+            <h3 class="text-3xl text-gray-800 font-bold leading-none mb-3">
+              Why MoodMate?
+            </h3>
+            <p class="text-gray-600 mb-8">
+              When developing MoodMate, we knew that mental health was one of the most pressing issues plaguing highschoolers across the U.S. So we made a feasible solution.
+               <br /><br />
+
+            </p>
+          </div>
+          <div class="w-full sm:w-1/2 p-6">
+            <img src="https://img.freepik.com/free-vector/student-stress-concept-illustration_114360-9550.jpg"></img>
+          </div>
+        </div>
+
+        <div class="flex flex-wrap flex-col-reverse sm:flex-row">
+          <div class="w-full sm:w-1/2 p-6 mt-6">
+            <img src="https://img.freepik.com/premium-vector/artificial-intelligence-vs-human-thinking-work-process-robot-solutions-ideas-better-than-man-flat-vector-illustration-rpa-automation-concept-banner-website-design-landing-web-page_179970-6895.jpg"></img>
+          </div>
+          <div class="w-full sm:w-1/2 p-6 mt-6">
+            <div class="align-middle">
+              <h3 class="text-3xl text-gray-800 font-bold leading-none mb-3">
+                How MoodMate works
+              </h3>
+              <p class="text-gray-600 mb-8">
+                Through our advanced AI capabilities, we were able to develop a fully interactable robot, that serves as a "Mate" to be alongside you, during your hardest times. 
+                Try it out by clicking the button above!
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+
+
+    <script>
+      /*Toggle dropdown list*/
+      /*https://gist.github.com/slavapas/593e8e50cf4cc16ac972afcbad4f70c8*/
+
+      var navMenuDiv = document.getElementById("nav-content");
+      var navMenu = document.getElementById("nav-toggle");
+
+      document.onclick = check;
+      function check(e) {
+        var target = (e && e.target) || (event && event.srcElement);
+
+        //Nav Menu
+        if (!checkParent(target, navMenuDiv)) {
+          // click NOT on the menu
+          if (checkParent(target, navMenu)) {
+            // click on the link
+            if (navMenuDiv.classList.contains("hidden")) {
+              navMenuDiv.classList.remove("hidden");
+            } else {
+              navMenuDiv.classList.add("hidden");
+            }
+          } else {
+            // click both outside link and outside menu, hide menu
+            navMenuDiv.classList.add("hidden");
+          }
+        }
+      }
+
+      function checkParent(t, elm) {
+        while (t.parentNode) {
+          if (t == elm) {
+            return true;
+          }
+          t = t.parentNode;
+        }
+        return false;
+      }
+      // get the element to revea
+
+    </script>
+  </body>
+</html>
