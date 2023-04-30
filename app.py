@@ -1,7 +1,7 @@
 from flask import render_template, Flask, request
 import openai
 app = Flask(__name__)
-openai.api_key = "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"
+openai.api_key = YOUR_API_KEY
 def chatbot_response(prompt):
     response = openai.Completion.create(
         engine = "text-davinci-003", 
